@@ -21,7 +21,7 @@ class EventSourcer():
 
     def undo(self):
         if(len(self.step) == 0):
-            return str(self.value)
+            return self.value
         self.lastop = self.operation.pop()
         if (self.lastop[0] =='sum'):
             self.value -= self.lastop[1]
@@ -32,7 +32,7 @@ class EventSourcer():
 
     def redo(self):
         if(len(self.step) == 0):
-            return str(self.value)
+            return self.value
         if (self.lastop[0] =='sum'):
             self.value += self.lastop[1]
         else:
